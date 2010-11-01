@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>dbinfo widget</title>
+        <link rel="stylesheet" href="style/main.css" type="text/css">
+    </head>
+    <body>
+
+        <h1>dbinfo widget</h1>
+
+        <p>This widget uses ajax.</p>
+
+        <div id="dbinfo"></div>
+
+    </body>
+    <script src="vendor/couchapp/loader.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $.couch.app( function( app )
+        {
+            $("#dbinfo").evently( app.ddoc.vendor.droids.evently.dbinfo );
+        });
+    </script>
+</html>

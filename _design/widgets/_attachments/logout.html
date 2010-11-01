@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>logout widget</title>
+        <link rel="stylesheet" href="style/main.css" type="text/css">
+    </head>
+    <body>
+
+        <h1>logout widget</h1>
+
+        <p>This widget simply logs out.</p>
+
+        <div id="logout"></div>
+
+    </body>
+    <script src="vendor/couchapp/loader.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $.couch.app( function( app )
+        {
+            $("#logout").evently( app.ddoc.vendor.droids.evently.logout );
+        });
+    </script>
+</html>

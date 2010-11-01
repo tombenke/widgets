@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>form widget</title>
+        <link rel="stylesheet" href="style/main.css" type="text/css">
+    </head>
+    <body>
+
+        <h1>form widget</h1>
+
+        <p>In order to save form data, you have to be logged in.</p>
+
+        <div id="auth"></div>
+
+        <p>Fills out a form and submit to the server,
+            that saves into the database.</p>
+
+        <div id="form"></div>
+
+    </body>
+    <script src="vendor/couchapp/loader.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $.couch.app( function( app )
+        {
+            $("#auth").evently( app.ddoc.vendor.droids.evently.auth, app );
+            $("#form").evently( app.ddoc.vendor.droids.evently.form, app );
+        });
+    </script>
+</html>

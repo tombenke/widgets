@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HelloWorld widget</title>
+        <link rel="stylesheet" href="style/main.css" type="text/css">
+    </head>
+    <body>
+
+        <h1>HelloWorld widget</h1>
+
+        <p>The simplest Evently widget possible.</p>
+
+        <p><i>Click to the text below</i></p>
+        <div id="helloworld"></div>
+
+    </body>
+    <script src="vendor/couchapp/loader.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $.couch.app( function( app )
+        {
+//            $("#helloworld").evently("account", app);
+            $("#helloworld").evently( app.ddoc.vendor.droids.evently.helloworld );
+        });
+    </script>
+</html>
