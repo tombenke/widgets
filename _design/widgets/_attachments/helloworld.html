@@ -8,7 +8,7 @@
 
         <h1>HelloWorld widget</h1>
 
-        <p>The simplest Evently widget possible.</p>
+        <p>The simplest Evently widget ever possible.</p>
 
         <p><i>Click to the text below</i></p>
         <div id="helloworld"></div>
@@ -18,8 +18,7 @@
     <script type="text/javascript" charset="utf-8">
         $.couch.app( function( app )
         {
-//            $("#helloworld").evently("account", app);
-            $("#helloworld").evently( app.ddoc.vendor.droids.evently.helloworld );
+            $("#helloworld").evently( "helloworld", app );
         });
     </script>
 </html>

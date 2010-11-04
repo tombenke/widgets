@@ -8,7 +8,8 @@
 
         <h1>dbinfo widget</h1>
 
-        <p>This widget uses ajax.</p>
+        <p>This widget demonstrates how to use ajax call to
+            communicate with the database backend.</p>
 
         <div id="dbinfo"></div>
 
@@ -17,7 +18,7 @@
     <script type="text/javascript" charset="utf-8">
         $.couch.app( function( app )
         {
-            $("#dbinfo").evently( app.ddoc.vendor.droids.evently.dbinfo );
+            $("#dbinfo").evently( "dbinfo", app );
         });
     </script>
 </html>

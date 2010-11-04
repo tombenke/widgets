@@ -8,7 +8,9 @@
 
         <h1>auth widget</h1>
 
-        <p>This widget logs in and logs out.</p>
+        <p>This widget is a simplified version of the original login 
+           widget. It logs in and logs out, without interacting with
+           profile widget, does not provide SignIn functionality neither.</p>
 
         <div id="auth"></div>
 
@@ -17,7 +19,7 @@
     <script type="text/javascript" charset="utf-8">
         $.couch.app( function( app )
         {
-            $("#auth").evently( app.ddoc.vendor.droids.evently.auth );
+            $("#auth").evently( "auth", app );
         });
     </script>
 </html>

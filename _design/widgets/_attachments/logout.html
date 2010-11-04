@@ -10,6 +10,11 @@
 
         <p>This widget simply logs out.</p>
 
+        <p>It is useful in situations, when you navigate to a page,
+        where the original login widget is not available any more,
+        however you would like to provide the opportunity
+        to the user to log out.</p>
+
         <div id="logout"></div>
 
     </body>
@@ -17,7 +22,7 @@
     <script type="text/javascript" charset="utf-8">
         $.couch.app( function( app )
         {
-            $("#logout").evently( app.ddoc.vendor.droids.evently.logout );
+            $("#logout").evently( "logout", app );
         });
     </script>
 </html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>form widget</title>
+        <link rel="stylesheet" href="style/main.css" type="text/css">
+    </head>
+    <body>
+
+        <h1>form widget</h1>
+
+        <p>This simple form demonstrates how to create a form to fill
+        some data, you are willing to store in the database.</p>
+
+        <p>Also it stores the data record into the database using the
+        appropriate couchapp lubrary.</p>
+
+        <p>In order to save form data, you have to be logged in.</p>
+
+        <div id="auth"></div>
+
+        <p>Fills out a form and submit to the server,
+            that saves it into the database.</p>
+
+        <div id="simpleform"></div>
+
+    </body>
+    <script src="vendor/couchapp/loader.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $.couch.app( function( app )
+        {
+            $("#auth").evently( "auth", app );
+            $("#simpleform").evently( "simpleform", app );
+        });
+    </script>
+</html>
