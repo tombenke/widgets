@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>gmaps widget</title>
+        <link rel="stylesheet" href="style/main.css" type="text/css">
+    </head>
+    <body>
+
+        <h1>gmaps widget</h1>
+
+        <p>Google Maps widget.</p>
+
+        <div id="gmaps"></div>
+
+        <p>TODO</p>
+
+    <h2>See also:</h2>
+    <ul>
+        <li>
+            <a href="http://snippets.dzone.com/posts/show/4361">jQuery Maps Interface</a>
+            at <a href="http://snippets.dzone.com">snippets.dzone.com</a>.
+        </li>
+    </ul>
+
+
+    </body>
+    <script src="vendor/couchapp/loader.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $.couch.app( function( app )
+        {
+            $("#auth").evently( app.ddoc.vendor.droids.evently.auth, app );
+            $("#gmaps").evently( "gmaps", app );
+        });
+    </script>
+</html>
+

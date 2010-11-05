@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>wizard widget</title>
+        <link rel="stylesheet" href="style/main.css" type="text/css">
+    </head>
+    <body>
+
+        <h1>wizard widget</h1>
+
+        <p>This simple wizard demonstrates how to create a multi-step
+           wizard to fill forms, and store data temporarily into the
+           wizardPayload.</p>
+
+        <div id="wizard"></div>
+
+    </body>
+    <script src="vendor/couchapp/loader.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $.couch.app( function( app )
+        {
+            $("#wizard").evently( "wizard", app );
+        });
+    </script>
+</html>

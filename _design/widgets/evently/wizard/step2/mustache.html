@@ -1,0 +1,44 @@
+<h1>Step 2</h1>
+<div class="wizard-panel">
+
+    <div  class="form">
+        <fieldset>
+            <legend>&nbsp;Login parameters&nbsp;</legend>
+
+            <p>
+                <label for="userName" class="left">Username:</label>
+                <input type="text"
+                       name="userName"
+                       id="userName"
+                       class="field"
+                       value="{{#widgetPayload}}{{userName}}{{/widgetPayload}}"
+                       tabindex="1" />
+            </p>
+
+            <p>
+                <label for="password" class="left">Password:</label>
+                <input type="password"
+                       name="password"
+                       id="password"
+                       class="field"
+                       value="{{#widgetPayload}}{{password}}{{/widgetPayload}}"
+                       tabindex="2" />
+            </p>
+
+            <p>
+                <label for="password_again" class="left">Password (again):</label>
+                <input type="password"
+                       name="password_again"
+                       id="password_again"
+                       class="field"
+                       value="{{#widgetPayload}}{{password}}{{/widgetPayload}}"
+                       tabindex="3" />
+            </p>
+
+        </fieldset>
+        <p>
+            <input type="button" name="button" id="back" class="button" value="Back" tabindex="4" />
+            <input type="button" name="button" id="next" class="button" value="Next" tabindex="5" />
+        </p>
+    </div>
+</div>

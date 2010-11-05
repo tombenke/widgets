@@ -1,0 +1,36 @@
+<h1>Step 3</h1>
+
+<div class="wizard-panel">
+    <div class="form">
+        <fieldset>
+            <legend>&nbsp;Remark&nbsp;</legend>
+
+            <p>
+                <label for="remark" class="left">Text:</label>
+                <input type="text"
+                       name="remark"
+                       id="remark"
+                       class="field"
+                       value="{{#widgetPayload}}{{remark}}{{/widgetPayload}}"
+                       tabindex="1" />
+            </p>
+
+        </fieldset>
+
+        <p>
+            <input type="button"
+                   name="button"
+                   id="back"
+                   class="button"
+                   value="Back"
+                   tabindex="2" />
+
+            <input type="button"
+                   name="button"
+                   id="finish"
+                   class="button"
+                   value="Finish"
+                   tabindex="3" />
+        </p>
+    </div>
+</div>
