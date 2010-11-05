@@ -1,0 +1,25 @@
+<h2>Notes</h2>
+<input type="button" class="button" name="new" id="new" value="New">
+
+{{#viewResults}}
+<ul>
+    <li>
+        <p><h3>{{#value}}{{title}}{{/value}}</h3></p>
+        <p>{{#value}}<pre>{{details}}</pre>{{/value}}</p>
+        <p>
+            <input type="button"
+                   class="button"
+                   name="{{#value}}{{_id}}{{/value}}"
+                   id="modify"
+                   value="Modify">
+
+            <input type="button"
+                   class="button"
+                   name="{{#value}}{{_id}}{{/value}}/{{#value}}{{_rev}}{{/value}}"
+                   id="delete"
+                   value="Delete">
+        </p>
+    </li>
+    <hr />
+</ul>
+{{/viewResults}}
