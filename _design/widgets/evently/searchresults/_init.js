@@ -7,7 +7,8 @@ function() {
     $.couch.session({
         success : function(r)
         {
-            if( searchCriteria.key )
+            if( searchCriteria.textToSearch &&
+                searchCriteria.textToSearch.length > 0 )
             {
                 app.view(
                     "findNoteByWord",
@@ -17,7 +18,7 @@ function() {
                             viewResults = json;
                             widget.trigger("browseSearchResults",viewResults);
                         },
-                        key : searchCriteria.textToSearch
+                        key : searchCriteria.textToSearch.toLowerCase()
                     });
             }
             else

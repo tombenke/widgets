@@ -7,16 +7,32 @@ function( e, searchCriteria )
     $.couch.session({
         success : function(r)
         {
-            app.view(
-                "findNoteByWord",
-                {
-                    success : function(json)
+            if( searchCriteria.textToSearch &&
+                searchCriteria.textToSearch.length > 0 )
+            {
+                app.view(
+                    "findNoteByWord",
                     {
-                        viewResults = json;
-                        widget.trigger("browseSearchResults",viewResults);
-                    },
-                    key : searchCriteria.textToSearch
-                });
+                        success : function(json)
+                        {
+                            viewResults = json;
+                            widget.trigger("browseSearchResults",viewResults);
+                        },
+                        key : searchCriteria.textToSearch.toLowerCase()
+                    });
+            }
+            else
+            {
+                app.view(
+                    "notes",
+                    {
+                        success : function(json)
+                        {
+                            viewResults = json;
+                            widget.trigger("browseSearchResults",viewResults);
+                        }
+                    });
+            }
         }
     });
 }

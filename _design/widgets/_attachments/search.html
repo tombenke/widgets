@@ -12,9 +12,6 @@
             requested from a client filtering the rows based on the value of
             a search text field.</p>
 
-        <p>In order to use this widget, you have to be logged in.</p>
-
-        <div id="auth"></div>
 
         <div id="searchform"></div>
         <div id="searchresults"></div>
@@ -24,7 +21,6 @@
     <script type="text/javascript" charset="utf-8">
         $.couch.app( function( app )
         {
-            $("#auth").evently( "auth", app );
             $("#searchform").evently( "searchform", app );
             $("#searchresults").evently( "searchresults", app );
             $.evently.connect("#searchform", "#searchresults", ["doSearch"]);
