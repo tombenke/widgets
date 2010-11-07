@@ -1,7 +1,8 @@
 {{#viewResults}}
 <ul>
     <li>
-        <h3><a href="{{id}}">{{title}}</a></h3>
+        <h3>{{#value}}<a href="{{_id}}">{{title}}</a>{{/value}}</h3>
+        <p>{{#value}}<pre>{{details}}</pre>{{/value}}</p>
     </li>
 </ul>
 {{/viewResults}}

@@ -7,19 +7,31 @@ function() {
     $.couch.session({
         success : function(r)
         {
-            app.view(
-                "findNoteByWord",
-                {
-                    success : function(json)
+            if( searchCriteria.key )
+            {
+                app.view(
+                    "findNoteByWord",
                     {
-                        viewResults = json;
-                        widget.trigger("browseSearchResults",viewResults);
-                    },
-                    startkey : [searchCriteria.textToSearch],
-                    endkey : [searchCriteria.textToSearch,[]],
-                    group : true,
-                    reduce : true
-                });
+                        success : function(json)
+                        {
+                            viewResults = json;
+                            widget.trigger("browseSearchResults",viewResults);
+                        },
+                        key : searchCriteria.textToSearch
+                    });
+            }
+            else
+            {
+                app.view(
+                    "notes",
+                    {
+                        success : function(json)
+                        {
+                            viewResults = json;
+                            widget.trigger("browseSearchResults",viewResults);
+                        }
+                    });
+            }
         }
     });
 }

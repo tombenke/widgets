@@ -15,7 +15,11 @@ function( e, searchCriteria )
                         viewResults = json;
                         widget.trigger("browseSearchResults",viewResults);
                     },
-                    key : searchCriteria.textToSearch
+                    startkey : [searchCriteria.textToSearch],
+                    endkey : [searchCriteria.textToSearch,[]],
+                    group : true,
+                    reduce : true
+//                    key : searchCriteria.textToSearch
                 });
         }
     });

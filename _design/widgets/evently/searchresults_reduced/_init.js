@@ -1,9 +1,9 @@
-function( e, searchCriteria )
-{
+function() {
     var widget = $(this);
     var app = $$(widget).app;
     var viewResults = {};
-
+    var searchCriteria = {};
+  
     $.couch.session({
         success : function(r)
         {
@@ -15,7 +15,10 @@ function( e, searchCriteria )
                         viewResults = json;
                         widget.trigger("browseSearchResults",viewResults);
                     },
-                    key : searchCriteria.textToSearch
+                    startkey : [searchCriteria.textToSearch],
+                    endkey : [searchCriteria.textToSearch,[]],
+                    group : true,
+                    reduce : true
                 });
         }
     });
