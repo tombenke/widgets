@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>search widget</title>
+        <link rel="stylesheet" href="style/main.css" type="text/css">
+    </head>
+    <body>
+
+        <h1>search widget</h1>
+
+        <p>This search demonstrates how to create a view, that can be
+            requested from a client filtering the rows based on the value of
+            a search text field.</p>
+
+        <p>In order to use this widget, you have to be logged in.</p>
+
+        <div id="auth"></div>
+
+        <div id="searchform"></div>
+        <div id="searchresults"></div>
+
+    </body>
+    <script src="vendor/couchapp/loader.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $.couch.app( function( app )
+        {
+            $("#auth").evently( "auth", app );
+            $("#searchform").evently( "searchform", app );
+            $("#searchresults").evently( "searchresults", app );
+            $.evently.connect("#searchform", "#searchresults", ["doSearch"]);
+        });
+    </script>
+</html>

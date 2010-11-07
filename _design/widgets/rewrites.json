@@ -1,0 +1,14 @@
+[
+    {
+        "from": "/note2",
+        "to": "_view/notes",
+        "method": "GET",
+        "query": {"key": "\"second note\""}
+    },
+    {
+        "from": "/notes",
+        "to": "_view/notes",
+        "method": "GET",
+        "query": {}
+    }
+]

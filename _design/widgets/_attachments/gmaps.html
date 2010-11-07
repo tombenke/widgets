@@ -10,26 +10,45 @@
 
         <p>Google Maps widget.</p>
 
-        <div id="gmaps"></div>
+        <div id="map"></div>
 
-        <p>TODO</p>
+        <p>
+            First you have to
+            <a href="http://code.google.com/intl/en-US/apis/maps/signup.html">
+                Sign Up for the Google Maps API
+            </a>
+        </p>
 
     <h2>See also:</h2>
     <ul>
         <li>
-            <a href="http://snippets.dzone.com/posts/show/4361">jQuery Maps Interface</a>
-            at <a href="http://snippets.dzone.com">snippets.dzone.com</a>.
+            <a href="http://gmap.nurtext.de/">gmap Google Maps Plugin for jQuery</a>
         </li>
     </ul>
 
-
     </body>
+
+    <!-- http://localhost, ABQIAAAAxAbzYvC-HCnWmy2IIwzrchT2yXp_ZAY8_ufC3CFXhHIE1NvwkxRPGK-h71jPZn4729q5rthbYnrgAg -->
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAxAbzYvC-HCnWmy2IIwzrchT2yXp_ZAY8_ufC3CFXhHIE1NvwkxRPGK-h71jPZn4729q5rthbYnrgAg" type="text/javascript"></script>
+
     <script src="vendor/couchapp/loader.js"></script>
+    <script type="text/javascript" src="scripts/gmap/jquery.gmap-1.1.0-min.js"></script>
     <script type="text/javascript" charset="utf-8">
         $.couch.app( function( app )
         {
-            $("#auth").evently( app.ddoc.vendor.droids.evently.auth, app );
-            $("#gmaps").evently( "gmaps", app );
+            //$("#auth").evently( app.ddoc.vendor.droids.evently.auth, app );
+            $("#map").gMap({ markers: [{ latitude: 47.651968,
+                              longitude: 9.478485,
+                              html: "_latlng" },
+                            { address: "Tettnang, Germany",
+                              html: "The place I live" },
+                            { address: "Langenargen, Germany",
+                              html: "_address" },
+                            { address: "Veroce, Hungary",
+                              html: "_address" }],
+                  address: "Braitenrain, Germany",
+                  zoom: 10 });
+            //$("#gmaps").evently( "gmaps", app );
         });
     </script>
 </html>
