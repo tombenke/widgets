@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>hCard widget</title>
+        <link rel="stylesheet" href="style/main.css" type="text/css">
+    </head>
+    <body>
+
+        <h1>hCard widget</h1>
+
+        <p>This widget displays contact info using hCard microformat.</p>
+
+        <p>It is useful if you would like to show
+           a virtual business card of somebody.</p>
+
+        <div id="hCard"></div>
+
+        <ul>
+            <li><div class="hCard"></div></li>
+            <li><div class="hCard"></div></li>
+            <li><div class="hCard"></div></li>
+            <li><div class="hCard"></div></li>
+        </ul>
+
+
+    </body>
+    <script src="vendor/couchapp/loader.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $.couch.app( function( app )
+        {
+            $("#hCard").evently( "hCard", app );
+            $(".hCard").evently( "hCard", app );
+            
+            $("#hCard").trigger( "showCard", {
+                countryName : "Hungary"
+            } );
+
+            $(".hCard").trigger( "showCard", {
+                countryName : "Germany"
+            } );
+
+            alert('continue...?');
+
+            $("#hCard").trigger( "showCard", {});
+
+
+        });
+    </script>
+</html>
