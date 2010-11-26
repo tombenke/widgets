@@ -7,6 +7,9 @@
         },
         "public" : {
           "db" : "http://tombenke.couchone.com/widgets"
+        },
+        "ws" : {
+          "db" : "http://couchdb1.ws.lsy.bud.dlh.de:5984/widgets"
         }
     }
 }

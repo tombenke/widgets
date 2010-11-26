@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>contactManager widget</title>
+        <link rel="stylesheet" href="style/main.css" type="text/css">
+        <link rel="stylesheet" href="style/smoothness/jquery-ui-1.8.2.custom.css" type="text/css"/>
+    </head>
+    <body>
+
+        <h1>contactManager widget</h1>
+
+        <p>This page demonstrates how to create a form to fill
+        contact data, you are willing to store into the database.</p>
+
+        <p>This widget is a little bit more complicated than the
+           <a href="simpleform.html">simpleform</a> in order to
+           to demonstrate how to use not only the plain input field,
+           but combo box, check box, etc.</p>
+        
+        <p>In order to save form data, you have to be logged in.</p>
+
+        <div id="auth"></div>
+
+        <div id="contactManager"></div>
+
+    </body>
+    <script src="vendor/couchapp/loader.js"></script>
+    <script type="text/javascript" src="scripts/jquery-ui-1.8.2.custom.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+        $.couch.app( function( app )
+        {
+            $("#auth").evently( "auth", app );
+            $("#contactManager").evently( "contactManager", app );
+        });
+    </script>
+</html>

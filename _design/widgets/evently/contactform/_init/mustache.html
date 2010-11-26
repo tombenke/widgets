@@ -1,0 +1,135 @@
+<form>
+    <fieldset>
+        <legend>&nbsp;Contact details&nbsp;</legend>
+
+        <input type="hidden" name="type" id="type" class="hidden" value="contact" />
+
+        <p>
+            <label for="title" class="left">Title:</label>
+            <input type="text" name="title" id="title" class="field" value="" tabindex="1" />
+        </p>
+
+        <p>
+            <label for="details" class="left">Details:</label>
+            <textarea cols="60" rows="10" name="details" id="details" class="field" value="" tabindex="2" />
+        </p>
+
+            <p><label for="title" class="left">Title:</label>
+                <select name="title" id="title" class="combo" value="{{#userdetails}}{{title}}{{/userdetails}}">
+                    <option value="choose" > Select... </option>
+                    <option value="mrs" {{#display_title_selected}}mrs{{/display_title_selected}}> Mrs. </option>
+                    <option value="mr" {{#display_title_selected}}mr{{/display_title_selected}}> Mr. </option>
+                    <option value="dr" {{#display_title_selected}}dr{{/display_title_selected}}> Dr. </option></select></p>
+            <p><label for="familyName" class="left">Családnév:</label>
+                <input type="text" name="familyName" id="familyName" class="field" value="{{#userdetails}}{{familyName}}{{/userdetails}}" tabindex="1" /></p>
+
+            <p><label for="surName" class="left">Keresztnév:</label>
+                <input type="text" name="surName" id="surName" class="field" value="{{#userdetails}}{{sureName}}{{/userdetails}}" tabindex="1" /></p>
+
+            <fieldset><legend>&nbsp;Levelési cím&nbsp;</legend>
+
+                <p><label for="mailingAddress_country" class="left">Ország:</label>
+                    <select name="mailingAddress_country" id="mailingAddress_country" class="combo">
+                        <option value="choose"> Select... </option>
+                        <option value="Sweden"{{#display_mailingAddress_country_selected}}Sweden{{/display_mailingAddress_country_selected}}> Sweden </option>
+                        <option value="United States" {{#display_mailingAddress_country_selected}}United States{{/display_mailingAddress_country_selected}}> United States </option>
+                        <option value="China" {{#display_mailingAddress_country_selected}}China{{/display_mailingAddress_country_selected}}> China </option></select></p>
+
+                <p><label for="mailingAddress_city" class="left">Város:</label>
+                    <input type="text" name="mailingAddress_city" id="mailingAddress_city" class="field" value="{{#userdetails}}{{#hq}}{{city}}{{/hq}}{{/userdetails}}" tabindex="1" /></p>
+
+                <p><label for="mailingAddress_zipCode" class="left">Irányítószám:</label>
+                    <input type="text" name="mailingAddress_zipCode" id="mailingAddress_zipCode" class="field" value="{{#userdetails}}{{#hq}}{{zipCode}}{{/hq}}{{/userdetails}}" tabindex="1" /></p>
+
+                <p><label for="mailingAddress_street" class="left">Utca:</label>
+                    <input type="text" name="mailingAddress_street" id="mailingAddress_street" class="field" value="{{#userdetails}}{{#hq}}{{street}}{{/hq}}{{/userdetails}}" tabindex="1" /></p>
+
+                <p><label for="mailingAddress_number" class="left">Szám:</label>
+                    <input type="text" name="mailingAddress_number" id="mailingAddress_number" class="field" value="{{#userdetails}}{{#hq}}{{number}}{{/hq}}{{/userdetails}}" tabindex="1" /></p>
+
+            </fieldset>
+
+            <p><label for="companyName" class="left">Vállalat:</label>
+                <input type="text" name="companyName" id="companyName" class="field" value="{{#userdetails}}{{companyName}}{{/userdetails}}" tabindex="2" /></p>
+
+            <p><label for="taxIdNumber" class="left">Adószám:</label>
+                <input type="text" name="taxIdNumber" id="taxIdNumber" class="field" value="{{#userdetails}}{{taxIdNumber}}{{/userdetails}}" tabindex="2" /></p>
+
+            <fieldset><legend>&nbsp;Vállalati cím:&nbsp;</legend>
+
+                <p><label for="companyAddress_country" class="left">Ország:</label>
+                    <select name="companyAddress_country" id="companyAddress_country" class="combo">
+                        <option value="choose"> Select... </option>
+                        <option value="Sweden" {{#display_companyAddress_country_selected}}Sweden{{/display_companyAddress_country_selected}}> Sweden </option>
+                        <option value="United States" {{#display_companyAddress_country_selected}}United States{{/display_companyAddress_country_selected}}> United States </option>
+                        <option value="China" {{#display_companyAddress_country_selected}}China{{/display_companyAddress_country_selected}}> China </option></select></p>
+
+                <p><label for="companyAddress_city" class="left">Város:</label>
+                    <input type="text" name="companyAddress_city" id="companyAddress_city" class="field" value="{{#userdetails}}{{#companyAddress}}{{city}}{{/companyAddress}}{{/userdetails}}" tabindex="1" /></p>
+
+                <p><label for="companyAddress_zipCode" class="left">Irányítószám:</label>
+                    <input type="text" name="companyAddress_zipCode" id="companyAddress_zipCode" class="field" value="{{#userdetails}}{{#companyAddress}}{{zipCode}}{{/companyAddress}}{{/userdetails}}" tabindex="1" /></p>
+
+                <p><label for="companyAddress_street" class="left">Utca:</label>
+                    <input type="text" name="companyAddress_street" id="companyAddress_street" class="field" value="{{#userdetails}}{{#companyAddress}}{{street}}{{/companyAddress}}{{/userdetails}}" tabindex="1" /></p>
+
+                <p><label for="companyAddress_number" class="left">Szám:</label>
+                    <input type="text" name="companyAddress_number" id="companyAddress_number" class="field" value="{{#userdetails}}{{#companyAddress}}{{number}}{{/companyAddress}}{{/userdetails}}" tabindex="1" /></p>
+
+            </fieldset>
+
+            <fieldset><legend>&nbsp;További helységek&nbsp;</legend>
+
+                <p><label for="otherLocations_country" class="left">Ország:</label>
+                    <select name="otherLocations_country" id="otherLocations_country" class="combo">
+                        <option value="choose"> Select... </option>
+                        <option value="Sweden" {{#display_otherLocations_country_selected}}Sweden{{/display_otherLocations_country_selected}}> Sweden </option>
+                        <option value="United States" {{#display_otherLocations_country_selected}}United States{{/display_otherLocations_country_selected}}> United States </option>
+                        <option value="China" {{#display_otherLocations_country_selected}}China{{/display_otherLocations_country_selected}}> China </option></select></p>
+
+                <p><label for="otherLocations_city" class="left">Város:</label>
+                    <input type="text" name="otherLocations_city" id="otherLocations_city" class="field" value="{{#userdetails}}{{#otherLocations}}{{city}}{{/otherLocations}}{{/userdetails}}" tabindex="1" /></p>
+
+                <p><label for="otherLocations_zipCode" class="left">Irányítószám:</label>
+                    <input type="text" name="otherLocations_zipCode" id="otherLocations_zipCode" class="field" value="{{#userdetails}}{{#otherLocations}}{{zipCode}}{{/otherLocations}}{{/userdetails}}" tabindex="1" /></p>
+
+                <p><label for="otherLocations_street" class="left">Utca:</label>
+                    <input type="text" name="otherLocations_street" id="otherLocations_street" class="field" value="{{#userdetails}}{{#otherLocations}}{{street}}{{/otherLocations}}{{/userdetails}}" tabindex="1" /></p>
+
+                <p><label for="otherLocations_number" class="left">Szám:</label>
+                    <input type="text" name="otherLocations_number" id="otherLocations_number" class="field" value="{{#userdetails}}{{#otherLocations}}{{number}}{{/otherLocations}}{{/userdetails}}" tabindex="1" /></p>
+
+            </fieldset>
+
+            <p><label for="contactperson" class="left">Kontakt:</label>
+                <input type="text" name="contactperson" id="contactperson" class="field" value="{{#userdetails}}{{contactperson}}{{/userdetails}}" tabindex="2" /></p>
+
+            <p><label for="mobile" class="left">Mobil:</label>
+                <input type="text" name="mobile" id="mobile" class="field" value="{{#userdetails}}{{mobile}}{{/userdetails}}" tabindex="2" /></p>
+
+            <p><label for="phone" class="left">Telefon:</label>
+                <input type="text" name="phone" id="phone" class="field" value="{{#userdetails}}{{phone}}{{/userdetails}}" tabindex="2" /></p>
+
+            <p><label for="fax" class="left">Fax:</label>
+                <input type="text" name="fax" id="fax" class="field" value="{{#userdetails}}{{fax}}{{/userdetails}}" tabindex="2" /></p>
+
+            <p><label for="email" class="left">Email:</label>
+                <input type="text" name="email" id="email" class="field" value="{{#userdetails}}{{email}}{{/userdetails}}" tabindex="2" /></p>
+
+            <p><label for="web" class="left">Web:</label>
+                <input type="text" name="web" id="web" class="field" value="{{#userdetails}}{{web}}{{/userdetails}}" tabindex="2" /></p>
+
+            <p><label for="anniversary" class="left">Lejárat:</label>
+                <input type="text" name="anniversary" id="anniversary" class="field" value="{{#userdetails}}{{anniversary}}{{/userdetails}}" tabindex="2" /></p>
+
+            <p><label for="description" class="left">Leírás:</label>
+                <input type="text" name="description" id="description" class="field" value="{{#userdetails}}{{description}}{{/userdetails}}" tabindex="2" /></p>
+
+        </fieldset>
+
+        <p>
+            <input type="submit" name="submit" id="submit" class="button" value="Save Form Data" tabindex="3" />
+        </p>
+
+    </fieldset>
+</form>
