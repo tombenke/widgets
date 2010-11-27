@@ -1,5 +1,5 @@
 function(doc) {
   if (doc.type && doc.type == 'country') {
-    emit( doc._id, doc.name );
+    emit( doc.name, doc._id );
   }
 };

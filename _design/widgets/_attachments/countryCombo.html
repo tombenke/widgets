@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>countryCombo widget</title>
+        <link rel="stylesheet" href="style/main.css" type="text/css">
+    </head>
+    <body>
+
+        <h1>countryCombo widget</h1>
+
+        <p>This widget displays a combo box to select a country.</p>
+
+        <p>The options are retrieved from the database via an Ajax call
+           during the initialization phase of the widget.</p>
+
+        <p>In order to use this widget, first you have to upload the
+           countries.json file intro the database.</p>
+
+        <p>Also a view is required for the Ajax call, to return the
+           list of countries.</p>
+
+        <div id="countryCombo"></div>
+
+    </body>
+    <script src="vendor/couchapp/loader.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $.couch.app( function( app )
+        {
+            $("#countryCombo").evently( "countryCombo", app );
+        });
+    </script>
+</html>
