@@ -7,13 +7,13 @@ function(e)
     widgetPayload.userName = $('#userName').attr('value');
     widgetPayload.password = $('#password').attr('value');
   
-    if(widget.attr('value') == 'Back')
+    if( widget.attr( 'value' ) == 'Back' )
     {
-        widget.trigger('_init', widgetPayload);
+        widget.trigger( '_init', widgetPayload );
     }
     else
     {
-        widget.trigger('step3', widgetPayload);
+        widget.trigger( 'step3', widgetPayload );
     }
 
 }

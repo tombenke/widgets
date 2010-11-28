@@ -1,4 +1,4 @@
-function(e, widgetPayload)
+function( e, widgetPayload )
 {
     return {
         widgetPayload : widgetPayload

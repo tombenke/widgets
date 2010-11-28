@@ -19,14 +19,28 @@
         <p>Also a view is required for the Ajax call, to return the
            list of countries.</p>
 
-        <div id="countryCombo"></div>
+        <p>
+            This widget is implemented on an asynchron way:
+            <div id="countryCombo_async"></div>
+        </p>
+
+        <p>
+            This synchron widget pops up an alert message, to demonstrate
+            its waiting state.
+        </p>
+        <p>
+            After releasing the alert window it retrieves
+            the data, and triggers the widget into a state that displays
+            the combo box with the retrieved data:
+            <div id="countryCombo_sync"></div></p>
 
     </body>
     <script src="vendor/couchapp/loader.js"></script>
     <script type="text/javascript" charset="utf-8">
         $.couch.app( function( app )
         {
-            $("#countryCombo").evently( "countryCombo", app );
+            $("#countryCombo_async").evently( "countryCombo_async", app );
+            $("#countryCombo_sync").evently( "countryCombo_sync", app );
         });
     </script>
 </html>

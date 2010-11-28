@@ -9,12 +9,12 @@ function(e)
         widgetPayload = e.data.args[1];
     }
 
-    if($(this).attr('value')=='Accept')
+    if( $(this).attr('value') == 'Accept' )
     {
-        $(this).trigger('step2', widgetPayload);
+        $(this).trigger( 'step2', widgetPayload );
     }
     else
     {
-        $(this).trigger('decline');
+        $(this).trigger( 'decline' );
     }
 }

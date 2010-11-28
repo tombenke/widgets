@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>partialDemo widget</title>
+        <link rel="stylesheet" href="style/main.css" type="text/css">
+    </head>
+    <body>
+
+        <h1>partialDemo widget</h1>
+
+        <p>
+            This widget displays how to include partials into a template
+            of a widget.
+        </p>
+        <p>
+            It is also possible to recursively include partials into other
+            partials.
+        </p>
+
+        <div id="partialDemo"></div>
+
+    </body>
+    <script src="vendor/couchapp/loader.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $.couch.app( function( app )
+        {
+            $("#partialDemo").evently( "partialDemo", app );
+        });
+    </script>
+</html>

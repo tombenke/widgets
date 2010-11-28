@@ -6,12 +6,12 @@ function(e)
   
     widgetPayload.remark = $('#remark').attr('value');
 
-    if($(this).attr('value') == 'Back')
+    if( $(this).attr('value') == 'Back' )
     {
-        $(this).trigger('step2', widgetPayload);
+        $(this).trigger( 'step2', widgetPayload );
     }
-    else if($(this).attr('value') == 'Finish')
+    else if( $(this).attr('value') == 'Finish' )
     {
-        widget.trigger('finish', widgetPayload);
+        widget.trigger( 'finish', widgetPayload );
     }
 }

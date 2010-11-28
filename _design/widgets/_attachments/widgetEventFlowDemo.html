@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>widgetEventFlowDemo widget</title>
+        <link rel="stylesheet" href="style/main.css" type="text/css">
+    </head>
+    <body>
+
+        <h1>widgetEventFlowDemo widget</h1>
+
+        <p>
+            This application creates a widget to demonstrate the
+            basic flow of execution during the invocation of the
+            _init event the widget.
+        </p>
+            
+        <p>
+            This widget stores some state information into it,
+            in the before() function of the _init event,
+            which will be visualized via of its template.
+        </p>
+
+        <div id="widgetEventFlowDemo"></div>
+
+    </body>
+    <script src="vendor/couchapp/loader.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $.couch.app( function( app )
+        {
+            $("#widgetEventFlowDemo").evently( "widgetEventFlowDemo", app );
+        });
+    </script>
+</html>
