@@ -1,0 +1,12 @@
+<div class="vcard">
+    {{#contact}}
+    <h1>Contact</h1>
+    <div class="contactDetails">
+        <div class="fullName"><a href="{{web}}">{{familyName}} {{givenName}}</a></div>
+        <div class="address">{{zipCode}} {{city}}, {{street}}, {{number}}</div>
+        <div class="phone">{{phone}}</div>
+        <div class="mailto"><a href="mailto:{{email}}">{{email}}</a></div>
+        <div class="web"><a href="{{web}}">{{web}}</a></div>
+    </div>
+    {{/contact}}
+</div>

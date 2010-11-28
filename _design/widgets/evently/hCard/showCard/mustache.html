@@ -1,22 +1,20 @@
 <div class="vcard">
     {{#hCard}}
-    <a class="fn org url" href="http://www.commerce.net/">CommerceNet</a>
-    <div class="adr">
-        <span class="type">Work</span>:
-        <div class="street-address">169 University Avenue</div>
-        <span class="locality">Palo Alto</span>,
-        <abbr class="region" title="California">CA</abbr>&nbsp;&nbsp;
-        <span class="postal-code">94301</span>
-        <div class="country-name">{{countryName}}</div>
+    <div class="address">
+        <span class="type">Private</span>:
+        <span class="street-address">{{street}} {{number}}</span>
+        <span class="locality">{{city}}</span>,
+        <span class="postal-code">{{zipCode}}</span>
+        <span class="country-name">{{countryName}}</span>
     </div>
     <div class="tel">
-        <span class="type">Work</span> +1-650-289-4040
+        <span class="type">Phone</span>{{phone}}
     </div>
     <div class="tel">
-        <span class="type">Fax</span> +1-650-289-4041
+        <span class="type">Fax</span>{{fax}}
     </div>
     <div>Email:
-        <span class="email">info@commerce.net</span>
+        <span class="email">{{email}}</span>
     </div>
     {{/hCard}}
 </div>

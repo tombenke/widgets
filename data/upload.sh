@@ -1,7 +1,7 @@
 #!/bin/bash
 
 declare -rx db=widgets
-declare -rx datafiles="countries"
+declare -rx datafiles="countries contacts"
 
 #public settings
 declare -rx public_username=admin
