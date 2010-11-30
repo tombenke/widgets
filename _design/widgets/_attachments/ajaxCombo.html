@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ajaxCombo widget</title>
+        <link rel="stylesheet" href="style/main.css" type="text/css">
+    </head>
+    <body>
+
+        <h1>ajaxCombo widget</h1>
+
+        <p>This widget displays a combo box to select a country.</p>
+
+        <p>The options are retrieved from the database via an Ajax call
+           during the initialization phase of the widget.</p>
+
+        <p>In order to use this widget, first you have to upload the
+           countries.json file intro the database.</p>
+
+        <p>Also a view is required for the Ajax call, to return the
+           list of countries.</p>
+
+        <p>
+            You can define the name of the view, from which the option list
+            can be filled up in the attribute list of the widget:<br/>
+            <tt>$("#ajaxCombo").evently( "ajaxCombo", app, { "viewName" : "countries" } );</tt>
+        </p>
+
+        <p>
+            If you want the widget to automatically make
+            the appropriate option to be selected, set the <tt>'key'</tt>
+            into the <tt>'current'</tt> attribute.<br/>
+            For example: <tt>current="VUT"</tt>.
+        <p>
+            <div id="ajaxCombo"></div>
+        </p>
+
+    </body>
+    <script src="vendor/couchapp/loader.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $.couch.app( function( app )
+        {
+            $("#ajaxCombo").evently( "ajaxCombo", app, { "viewName" : "countries" } );
+        });
+    </script>
+</html>
