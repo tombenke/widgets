@@ -1,4 +1,9 @@
-function(e, args)
+function(e, args )
 {
-    //alert( args.a );
+    if( ! $$(this).args )
+    {
+        $$(this).args = args;
+    }
+
+    alert( 'before' + $$(this).args.userId );
 }
