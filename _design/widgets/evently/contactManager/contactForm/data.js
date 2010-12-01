@@ -4,16 +4,16 @@ function( e, doc )
     var app = $$(widget).app;
 
     return {
-        doc : doc/*,
+        doc : doc,
         title_selected : function()
         {
-            return function(text, render)
+            return function( text, render )
             {
-                if( doc.title && doc.title.indexOf( text ) >= 0 )
+                if( doc.title && doc.title === text )
                 {
                     return 'selected=true'
                 }
             }
-        }*/
+        }
     }
 }
