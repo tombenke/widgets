@@ -57,10 +57,8 @@
 
         <div id="addressTab">
             <p>
-                <label for="country" class="left">Country:</label>
-                <select name="country" id="country" class="combo" tabindex="8" >
-                    {{#country_options}}  {{/country_options}}
-                </select>
+                <label for="countryCombo" class="left">Country:</label>
+                <span id="countryCombo" class="combo" tabindex="8" current="{{country}}" />
             </p>
 
             <p>

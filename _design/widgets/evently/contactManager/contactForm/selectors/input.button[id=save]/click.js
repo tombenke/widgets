@@ -2,12 +2,8 @@ function(e)
 {
     var form = $(':parent');
     var newDoc = form.serializeObject();
-    /*
-    var newDoc = {
-        contact_title : $('select[name=contact_title]', this).val(),
-        firstname : $('input[name=contact_firstname]', this).val(),
-        familyname : $('input[name=contact_familyname]', this).val()
-    };*/
+    newDoc.title = newDoc.title[0];
+    newDoc.country = newDoc.country[0];
 
     $$(this).app.db.saveDoc( newDoc, {
         success: function( resp )

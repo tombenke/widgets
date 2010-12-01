@@ -28,10 +28,11 @@
         <p>
             If you want the widget to automatically make
             the appropriate option to be selected, set the <tt>'key'</tt>
-            into the <tt>'current'</tt> attribute.<br/>
+            into the <tt>'current'</tt> attribute
+            in the container span or div element.<br/>
             For example: <tt>current="VUT"</tt>.
         <p>
-            <div id="ajaxCombo"></div>
+            <span id="country" class="combo" tabindex="1" current="TUV" />
         </p>
 
     </body>
@@ -39,7 +40,7 @@
     <script type="text/javascript" charset="utf-8">
         $.couch.app( function( app )
         {
-            $("#ajaxCombo").evently( "ajaxCombo", app, { "viewName" : "countries" } );
+            $("#country").evently( "ajaxCombo", app, { "viewName" : "countries" });
         });
     </script>
 </html>
