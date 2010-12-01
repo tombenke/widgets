@@ -1,4 +1,4 @@
-function(e, args )
+function( e, args )
 {
     if( ! $$(this).args )
     {
