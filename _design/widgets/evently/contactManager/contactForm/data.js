@@ -1,10 +1,10 @@
-function(e, doc)
+function( e, doc )
 {
     var widget = $(this);
     var app = $$(widget).app;
 
     return {
-        doc : doc,
+        doc : doc/*,
         title_selected : function()
         {
             return function(text, render)
@@ -14,6 +14,6 @@ function(e, doc)
                     return 'selected=true'
                 }
             }
-        }
+        }*/
     }
 }
