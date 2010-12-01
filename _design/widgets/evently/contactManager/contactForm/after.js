@@ -4,6 +4,6 @@ function ()
     var app = $$(widget).app;
 
     $('#contactFormTabs').tabs();
-    $("#countryCombo").evently( "ajaxCombo", app, { "viewName" : "countries" } );
+    $("#country").evently( "ajaxCombo", app, { "viewName" : "countries" } );
 }
 
