@@ -88,3 +88,11 @@ input.button:hover {cursor: pointer; border:solid 1px rgb(80,80,80); background:
   width:600px;
   height:400px;
 }
+
+img {
+    border: none;
+}
+
+td {
+    border-bottom: solid 1px #aaaaaa;
+}

@@ -1,0 +1,24 @@
+<div class="form">
+
+    <fieldset>
+        <legend>&nbsp;Note&nbsp;</legend>
+
+        <input type="hidden" name="_id" id="_id" value="{{#doc}}{{_id}}{{/doc}}" />
+        <input type="hidden" name="_rev" id="_rev" value="{{#doc}}{{_rev}}{{/doc}}" />
+        <input type="hidden" name="type" id="type" value="{{#doc}}{{type}}{{/doc}}" />
+
+        <p>
+            <label for="title" class="left">Title:</label>
+            <input type="text" name="title" id="title" class="field" value="{{#doc}}{{title}}{{/doc}}" tabindex="1" />
+        </p>
+
+        <p>
+            <label for="details" class="left">Details:</label>
+            <textarea cols="60" rows="10" name="details" id="details" class="field" tabindex="2">{{#doc}}{{details}}{{/doc}}</textarea>
+        </p>
+
+    </fieldset>
+    <p>
+        <input type="button" name="button" id="create" class="button" value="Save" tabindex="3" />
+    </p>
+</div>

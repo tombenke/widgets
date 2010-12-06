@@ -1,25 +1,65 @@
 <h2>Notes</h2>
-<input type="button" class="button" name="new" id="new" value="New">
+<a href="#add">
+    <img src="images/Button-Add-icon-16.png" />
+</a>
 
+<table>
 {{#viewResults}}
-<ul>
-    <li>
-        <p><h3>{{#value}}{{title}}{{/value}}</h3></p>
-        <p>{{#value}}<pre>{{details}}</pre>{{/value}}</p>
-        <p>
-            <input type="button"
-                   class="button"
-                   name="{{#value}}{{_id}}{{/value}}"
-                   id="modify"
-                   value="Modify">
-
-            <input type="button"
-                   class="button"
-                   name="{{#value}}{{_id}}{{/value}}/{{#value}}{{_rev}}{{/value}}"
-                   id="delete"
-                   value="Delete">
-        </p>
-    </li>
-    <hr />
-</ul>
+    <tr>
+    {{#value}}
+        <td>{{title}}</h3></td>
+        <td>{{details}}</td>
+        <td>
+            <a  href="#delete" name="{{_id}}/{{_rev}}">
+                <img src="images/Button-Delete-icon-16.png" />
+            </a>
+        </td>
+        <td>
+            <a href="#edit" name="{{_id}}">
+                <img src="images/article-icon-16.png" />
+            </a>
+        </td>
+        <td>
+            <a href="#add">
+                <img src="images/Button-Add-icon-16.png" />
+            </a>
+        </td>
+    {{/value}}
+    </tr>
 {{/viewResults}}
+</table>
+
+<!-- tr id=":o5" class="zA yO">
+    <td style="cursor: -moz-grab;" class="oZ-x3 xY" id=":o4">
+        <img alt="" src="images/cleardot.gif" class="oZ-jd">
+        <input type="checkbox" aria-labelledby="" class="oZ-jc" id=":o3">
+    </td>
+    <td class="cnYuxb xY">
+        <img alt="" src="images/cleardot.gif" id=":o2" class="EqK8f">
+    </td>
+    <td class="yX xY">
+        <div class="yW" id=":o1">
+            <span email="ivantomi@gmail.com" class="yP">IVÁN, Tamás</span>
+        </div>
+    </td>
+    <td class="xY"></td>
+    <td class="xY" role="link" tabindex="0" id=":o0">
+        <div class="xS">
+            <div class="xT">
+                <div class="y6">
+                    <span id=":ny">query.sh</span>
+                    &lrm;
+                    <span class="y2">
+                        &nbsp;-&nbsp;Sziasztok, Kicsit továbbfejlesztettem a query.sh scriptet: csinál 1000 lekérdezést, aztán …
+                    </span>
+                </div>
+            </div>
+        </div>
+    </td>
+    <td class="yf xY">
+        <img alt="Csatolt fájl" title="query.sh" src="images/cleardot.gif" class="yE">
+    </td>
+    <td class="xW xY">
+        <span id=":nx" title="2010. október 29. 14:06">okt. 29.</span>
+    </td>
+</tr-->
