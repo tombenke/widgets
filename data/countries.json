@@ -1,6 +1,6 @@
 { "docs" : [
-    { "_id" : "ABW", "type" : "country", "type" : "country", "name" : "Aruba" },
-    { "_id" : "AFG", "type" : "country", "type" : "country", "name" : "Afghanistan" },
+    { "_id" : "ABW", "type" : "country", "name" : "Aruba" },
+    { "_id" : "AFG", "type" : "country", "name" : "Afghanistan" },
     { "_id" : "AGO", "type" : "country", "name" : "Angola" },
     { "_id" : "AIA", "type" : "country", "name" : "Anguilla" },
     { "_id" : "ALA", "type" : "country", "name" : "Åland Islands" },
