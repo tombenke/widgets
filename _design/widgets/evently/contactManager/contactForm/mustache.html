@@ -1,130 +1,253 @@
 <form>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function() {
+            $("#customerData_expirationDate").datepicker({ dateFormat: 'yy-mm-dd' });
+        });
+    </script>
+
     {{#doc}}
 
-    {{#_rev}}
-        <input type="hidden" name="_rev" id="_rev" value="{{_rev}}" />
-    {{/_rev}}
-    <input type="hidden" name="type" id="type" value="contact" />
+    {{#_id}}<input type="hidden" name="_id" id="_id" value="{{_id}}" />{{/_id}}
+    {{#_rev}}<input type="hidden" name="_rev" id="_rev" value="{{_rev}}" />{{/_rev}}
+    <input type="hidden" name="userType" id="userType" value="customer" />
+    {{#defaultImage}}<input type="hidden" name="defaultImage" id="defaultImage" value="{{defaultImage}}" />{{/defaultImage}}
+
+    <input type="hidden" name="type" id="type" value="user" />
 
     <div id="contactFormTabs">
         <ul>
-            <li><a href="#personalInfoTab">Personal info</a></li>
-            <li><a href="#addressTab">Address</a></li>
-            <li><a href="#contactInfoTab">Contact info</a></li>
+            <li><a href="#customerDataTab">Ügyfél adatok</a></li>
+            <li><a href="#personalDataTab">Személyes adatok</a></li>
+            <li><a href="#companyDataTab">Céges adatok</a></li>
         </ul>
 
-        <div id="personalInfoTab">
+        <div id="customerDataTab" class="contactform">
 
-            <p>
-                <label for="_id" class="left">User ID:</label>
-                <input type="text" name="_id" id="_id" class="field" value="{{_id}}" tabindex="1" />
-            </p>
+            <fieldset>
+                <legend>Azonosítás:</legend>
 
-            <p>
-                <label for="title" class="left">Title:</label>
-                <select name="title" id="title" class="combo" tabindex="2">
-                    <option value="choose" {{#title_selected}}choose{{/title_selected}}> Select... </option>
-                    <option value="mrs" {{#title_selected}}mrs{{/title_selected}}> Mrs. </option>
-                    <option value="mr" {{#title_selected}}mr{{/title_selected}}> Mr. </option>
-                    <option value="dr" {{#title_selected}}dr{{/title_selected}}> Dr. </option>
-                </select>
-            </p>
+                <p>
+                    {{#personalData}}
+                    <label for="personalData_email" class="left">Email:</label>
+                    <input type="text" name="email" id="personalData_email" class="field" value="{{email}}" tabindex="1" {{#has_id}}disabled="disabled"{{/has_id}}/>
+                    {{/personalData}}
+                </p>
 
-            <p>
-                <label for="familyName" class="left">Family name:</label>
-                <input type="text" name="familyName" id="familyName" class="field" value="{{familyName}}" tabindex="3" />
-            </p>
+                <p>
+                    {{#customerData}}
+                    <label for="customerData_password" class="left">Jelszó:</label>
+                    <input type="text" name="customerData_password" id="customerData_password" class="field" value="{{password}}" tabindex="2" />
+                    {{/customerData}}
+                </p>
 
-            <p>
-                <label for="givenName" class="left">First name:</label>
-                <input type="text" name="givenName" id="givenName" class="field" value="{{givenName}}" tabindex="4" />
-            </p>
+            </fieldset>
 
-            <p>
-                <label for="dateOfBirth" class="left">Date of birth:</label>
-                <input type="text" name="dateOfBirth" id="dateOfBirth" class="field" value="{{dateOfBirth}}" tabindex="5" />
-            </p>
+            <fieldset>
+                <legend>Státusz adatok:</legend>
+                {{#customerData}}
 
-            <p>
-                <label for="company" class="left">Company:</label>
-                <input type="text" name="company" id="company" class="field" value="{{company}}" tabindex="6" />
-            </p>
+                <input type="hidden" name="customerData_challenge" id="customerData_challenge" value="{{challenge}}" />
+                <input type="hidden" name="customerData_response" id="customerData_response" value="{{challenge}}" />
+                <input type="hidden" name="customerData_agent" id="customerData_agent" class="field" value="{{agent}}" />
+                {{#ratings}}
+                <input type="hidden" name="customerData_ratings_numberOfVotes" id="customerData_ratings_numberOfVotes" class="field" value="{{numberOfVotes}}" />
+                <input type="hidden" name="customerData_ratings_average" id="customerData_ratings_average" class="field" value="{{average}}" />
+                {{/ratings}}
 
-            <p>
-                <label for="taxId" class="left">Tax ID:</label>
-                <input type="text" name="taxId" id="taxId" class="field" value="{{taxId}}" tabindex="7" />
-            </p>
+                <p>
+                    <label for="customerData_paymentType" class="left">Fizetés módja:</label>
+                    <select type="text" name="customerData_paymentType" id="customerData_paymentType" class="combo" value="{{paymentType}}" tabindex="3" >
+                        <option value="CASH" {{#paymentTypeSelected}}CASH{{/paymentTypeSelected}}>Készpénz</option>
+                        <option value="TRANSFER" {{#paymentTypeSelected}}TRANSFER{{/paymentTypeSelected}}>Átutalás</option>
+                        <option value="PAYPAL" {{#paymentTypeSelected}}PAYPAL{{/paymentTypeSelected}}>PayPal</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="customerData_paymentID" class="left">Fizetési azonosító szám:</label>
+                    <input type="text" name="customerData_paymentID" id="customerData_paymentID" class="field" value="{{paymentID}}" tabindex="4" />
+                </p>
+
+                <p>
+                    <label for="customerData_expirationDate" class="left">Lejárat dátuma:</label>
+                    <input type="text" name="customerData_expirationDate" id="customerData_expirationDate" class="dateField" value="{{expirationDate}}" tabindex="5" />
+                </p>
+
+                <p>
+                    <label for="customerData_status" class="left">Állapot:</label>
+                    <select type="text" name="customerData_status" id="customerData_status" class="combo" value="{{status}}" tabindex="6" >
+                        <option value="NEW" {{#select_status}}NEW{{/select_status}}>Új</option>
+                        <option value="INACTIVE" {{#select_status}}INACTIVE{{/select_status}}>Inaktív</option>
+                        <option value="ACTIVE" {{#select_status}}ACTIVE{{/select_status}}>Aktív</option>
+                        <option value="TERMINATED" {{#select_status}}TERMINATED{{/select_status}}>Törlendő</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="customerData_login" class="left">Belépés:</label>
+                    <select name="customerData_login" id="customerData_login" class="combo" value="{{login}}" tabindex="7" >
+                        <option value="true" {{#select_login}}true{{/select_login}}>Engedélyezve</option>
+                        <option value="false" {{#select_login}}false{{/select_login}}>Letiltva</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="customerData_customerTag" class="left">Belépés:</label>
+                    <select name="customerData_customerTag" id="customerData_customerTag" class="combo" value="{{customerTag}}" tabindex="8" >
+                        <option value="Cat_őstermelő" {{#select_customerTag}}Cat_őstermelő{{/select_customerTag}}>őstermelő</option>
+                        <option value="Cat_gyártó" {{#select_customerTag}}Cat_gyártó{{/select_customerTag}}>gyártó</option>
+                        <option value="Cat_étterem" {{#select_customerTag}}Cat_étterem{{/select_customerTag}}>étterem</option>
+                        <option value="Cat_vegyes kisker" {{#select_customerTag}}Cat_vegyes kisker{{/select_customerTag}}>vegyes kisker</option>
+                        <option value="Cat_zöldséges" {{#select_customerTag}}Cat_zöldséges{{/select_customerTag}}>zöldséges</option>
+                        <option value="Cat_hentes" {{#select_customerTag}}Cat_hentes{{/select_customerTag}}>hentes</option>
+                        <option value="Cat_nagyker" {{#select_customerTag}}Cat_nagyker{{/select_customerTag}}>nagyker</option>
+                    </select>
+                </p>
+
+            {{/customerData}}
+            </fieldset>
         </div>
 
-        <div id="addressTab">
-            <p>
-                <label for="country" class="left">Country:</label>
-                <select id="country" name="country" class="combo" tabindex="8" current="{{country}}">
-                </select>
-            </p>
+        <div id="personalDataTab" class="contactform">
+        {{#personalData}}
 
-            <p>
-                <label for="city" class="left">City:</label>
-                <input type="text" name="city" id="city" class="field" value="{{city}}" tabindex="9" />
-            </p>
+            <fieldset>
+                <legend>Személyes adatok:</legend>
 
-            <p>
-                <label for="postalCode" class="left">Postal code:</label>
-                <input type="text" name="postalCode" id="postalCode" class="field" value="{{postalCode}}" tabindex="10" />
-            </p>
+                <p>
+                    <label for="personalData_familyName" class="left">Vezetéknév:</label>
+                    <input type="text" name="familyName" id="personalData_familyName" class="field" value="{{familyName}}" tabindex="1" />
+                </p>
 
-            <p>
-                <label for="street" class="left">Street:</label>
-                <input type="text" name="street" id="street" class="field" value="{{street}}" tabindex="10" />
-            </p>
+                <p>
+                    <label for="personalData_surName" class="left">Keresztnév:</label>
+                    <input type="text" name="surName" id="personalData_surName" class="field" value="{{surName}}" tabindex="2" />
+                </p>
 
-            <p>
-                <label for="number" class="left">Number:</label>
-                <input type="text" name="number" id="number" class="field" value="{{number}}" tabindex="12" />
-            </p>
+                <p>
+                    <label for="personalData_mobile" class="left">Mobil:</label>
+                    <input type="text" name="mobile" id="personalData_mobile" class="field" value="{{mobile}}" tabindex="3" />
+                </p>
 
+                <p>
+                    <label for="personalData_phone" class="left">Telefon:</label>
+                    <input type="text" name="phone" id="personalData_phone" class="field" value="{{phone}}" tabindex="4" />
+                </p>
+
+                <p>
+                    <label for="personalData_fax" class="left">Fax:</label>
+                    <input type="text" name="fax" id="personalData_fax" class="field" value="{{fax}}" tabindex="5" />
+                </p>
+
+                <p>
+                    <label for="personalData_web" class="left">Weboldal:</label>
+                    <input type="text" name="web" id="personalData_web" class="field" value="{{web}}" tabindex="6" />
+                </p>
+
+                <p>
+                    <label for="personalData_description" class="left">Leírás:</label><br />
+                    <textarea  cols="80" rows="10" name="personalData_description" id="personalData_description" tabindex="7">{{description}}</textarea>
+                </p>
+            </fieldset>
+
+            <fieldset>
+            {{#address}}
+                <legend>Lakcím:</legend>
+
+                <input type="hidden" name="country" id="personalData_address_country" class="field" value="HUN" />
+                <input type="hidden" name="county" id="personalData_address_county" class="field" value="" />
+
+                <p>
+                    <label for="personalData_address_city" class="left">Település:</label>
+                    <input type="text" name="city" id="personalData_address_city" class="field" value="{{city}}" tabindex="10" />
+                </p>
+
+                <p>
+                    <label for="personalData_address_zipCode" class="left">Irányítószám:</label>
+                    <input type="text" name="zipCode" id="personalData_address_zipCode" class="field" value="{{zipCode}}" tabindex="11" />
+                </p>
+
+                <p>
+                    <label for="personalData_address_street" class="left">Utca:</label>
+                    <input type="text" name="street" id="personalData_address_street" class="field" value="{{street}}" tabindex="12" />
+                </p>
+
+                <p>
+                    <label for="personalData_address_number" class="left">Házszám:</label>
+                    <input type="text" name="number" id="personalData_address_number" class="field" value="{{number}}" tabindex="13" />
+                </p>
+
+            {{/address}}
+            </fieldset>
+
+        {{/personalData}}
         </div>
 
-        <div id="contactInfoTab">
-            <p>
-                <label for="mobile" class="left">Mobile:</label>
-                <input type="text" name="mobile" id="mobile" class="field" value="{{mobile}}" tabindex="23" />
-            </p>
+        <div id="companyDataTab" class="contactform">
+        {{#companyData}}
 
-            <p>
-                <label for="phone" class="left">Phone:</label>
-                <input type="text" name="phone" id="phone" class="field" value="{{phone}}" tabindex="14" />
-            </p>
+            <fieldset>
+                <legend>Cég adatok:</legend>
 
-            <p>
-                <label for="fax" class="left">Fax:</label>
-                <input type="text" name="fax" id="fax" class="field" value="{{fax}}" tabindex="15" />
-            </p>
+                <p>
+                    <label for="companyData_companyName" class="left">Cégnév:</label>
+                    <input type="text" name="companyName" id="companyData_companyName" class="field" value="{{companyName}}" tabindex="1" />
+                </p>
 
-            <p>
-                <label for="email" class="left">Email:</label>
-                <input type="text" name="email" id="email" class="field" value="{{email}}" tabindex="16" />
-            </p>
+                <p>
+                    <label for="companyData_taxID" class="left">Adószám:</label>
+                    <input type="text" name="taxID" id="companyData_taxID" class="field" value="{{taxID}}" tabindex="2" />
+                </p>
 
-            <p>
-                <label for="web" class="left">Website:</label>
-                <input type="text" name="web" id="web" class="field" value="{{web}}" tabindex="17" />
-            </p>
+            </fieldset>
 
+            <fieldset>
+            {{#mailingAddress}}
+                <legend>Levelezési cím:</legend>
+
+                <input type="hidden" name="country" id="companyData_mailingAddress_country" class="field" value="{{country}}" />
+                <input type="hidden" name="county" id="companyData_mailingAddress_county" class="field" value="{{county}}" />
+
+                <p>
+                    <label for="companyData_mailingAddress_city" class="left">Település:</label>
+                    <input type="text" name="city" id="companyData_mailingAddress_city" class="field" value="{{city}}" tabindex="3" />
+                </p>
+
+                <p>
+                    <label for="companyData_mailingAddress_zipCode" class="left">Irányítószám:</label>
+                    <input type="text" name="zipCode" id="companyData_mailingAddress_zipCode" class="field" value="{{zipCode}}" tabindex="4" />
+                </p>
+
+                <p>
+                    <label for="companyData_mailingAddress_street" class="left">Utca:</label>
+                    <input type="text" name="street" id="companyData_mailingAddress_street" class="field" value="{{street}}" tabindex="5" />
+                </p>
+
+                <p>
+                    <label for="companyData_mailingAddress_number" class="left">Házszám:</label>
+                    <input type="text" name="number" id="companyData_mailingAddress_number" class="field" value="{{number}}" tabindex="6" />
+                </p>
+
+            {{/mailingAddress}}
+            </fieldset>
+
+        {{/companyData}}
         </div>
+
+        <p class="contactform">
+            <input type="button"
+                   class="button"
+                   name="save"
+                   id="save"
+                   value="Save">
+
+            <input type="button"
+                   class="button"
+                   name="cancel"
+                   id="cancel"
+                   value="Cancel">
+        </p>
     </div>
-    <p>
-        <input type="button"
-               class="button"
-               name="save"
-               id="save"
-               value="Save">
-
-        <input type="button"
-               class="button"
-               name="cancel"
-               id="cancel"
-               value="Cancel">
-    </p>
     {{/doc}}
 </form>
+

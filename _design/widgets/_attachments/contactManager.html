@@ -31,7 +31,9 @@
         $.couch.app( function( app )
         {
             $("#auth").evently( "auth", app );
-            $("#contactManager").evently( "contactManager", app );
+            $("#contactManager").evently( "contactManager", app, {
+                "viewName" : "contacts"
+            } );
         });
     </script>
 </html>

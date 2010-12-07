@@ -13,4 +13,3 @@ The **index.html** contains a list of all the widgets.
 If you would like to see how the widgets works, visit the 
 [on-line working instance](http://tombenke.couchone.com/widgets/_design/widgets/index.html)
 of the project.
-

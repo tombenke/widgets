@@ -1,25 +1,32 @@
 <h2>Notes</h2>
-<input type="button" class="button" name="new" id="new" value="New">
+<a href="#add">
+    <img src="images/Button-Add-icon-16.png" />
+</a>
 
+<table>
 {{#viewResults}}
-<ul>
-    <li>
-        <p><h3>{{#value}}{{firstName}}{{/value}}</h3></p>
-        <p>{{#value}}<pre>{{givenName}}</pre>{{/value}}</p>
-        <p>
-            <input type="button"
-                   class="button"
-                   name="{{#value}}{{_id}}{{/value}}"
-                   id="modify"
-                   value="Modify">
-
-            <input type="button"
-                   class="button"
-                   name="{{#value}}{{_id}}{{/value}}/{{#value}}{{_rev}}{{/value}}"
-                   id="delete"
-                   value="Delete">
-        </p>
-    </li>
-    <hr />
-</ul>
+    <tr>
+    {{#value}}
+        {{#personalData}}
+        <td>{{familyName}}</td>
+        <td>{{surName}}</td>
+        {{/personalData}}
+        <td>
+            <a  href="#delete" name="{{_id}}/{{_rev}}">
+                <img src="images/Button-Delete-icon-16.png" />
+            </a>
+        </td>
+        <td>
+            <a href="#edit" name="{{_id}}">
+                <img src="images/article-icon-16.png" />
+            </a>
+        </td>
+        <td>
+            <a href="#add">
+                <img src="images/Button-Add-icon-16.png" />
+            </a>
+        </td>
+    {{/value}}
+    </tr>
 {{/viewResults}}
+</table>
