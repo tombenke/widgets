@@ -1,0 +1,25 @@
+<label>Kommentálja:</label>
+<br/>
+<br/>
+<textarea name="comment_text" id="comment_text" rows="6"/>
+<br/>
+<p>
+  <input type="button" name="button" class="button" id="save" value="Mentés"/>
+</p>
+<br/>
+<label>Kommentek:</label>
+<br/>
+<br/>
+
+{{#comments}}
+   {{#value}}
+   <fieldset>
+     {{timestamp}}<br/>
+     {{text}}<br/>
+   </fieldset>
+   {{/value}}
+{{/comments}}
+<br/>
+
+
+

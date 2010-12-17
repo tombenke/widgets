@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Image upload</title>
-        <link rel="stylesheet" href="style/documentation.css" type="text/css">
-
+        <title>Comment</title>
+        <link rel="stylesheet" href="style/jquery.rating.css" type="text/css">
         <script src="scripts/jquery-1.4.2.min.js"></script>
         <script src="/_utils/script/sha1.js"></script>
         <script src="/_utils/script/json2.js"></script>
@@ -13,25 +12,22 @@
         <script src="vendor/couchapp/jquery.mustache.js"></script>
         <script src="vendor/couchapp/jquery.evently.js"></script>
         <script src="scripts/jquery-ui-1.8.2.custom.min.js"></script>
-
-        <script src="scripts/jquery.blockUI.js"></script>
-        <script src="scripts/jquery.form.js"></script>
-        <script src="scripts/jquery.MetaData.js"></script>
-        <script src="scripts/jquery.MultiFile.js"></script>
+        
     </head>
     <body>
 
-        <h1>Image upload</h1>
+        <h1>Comment</h1>
         <br/>
-        <p>This simple widget demonstrates how to upload image.</p>
+        <p>This simple widget demonstrates how to display comments.</p>
 
-        <div id="imageUpload"></div>
+        <div id="comment"></div>
+		
 
     </body>
     <script type="text/javascript" charset="utf-8">
         $.couch.app( function( app )
         {
-            $("#imageUpload").evently( "imageUpload", app, { "id" : "", "rev" : "", "db" : "mygravatar", "display" : "true" } );
+            $("#comment").evently( "comment", app, { "key" : "test@freemail.hu", "db" : "widgets", "authentication_needed" : false, "display_result" : true } );
         });
     </script>
 </html>
