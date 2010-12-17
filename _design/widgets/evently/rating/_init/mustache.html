@@ -1,0 +1,38 @@
+{{#display_vote}}
+<input type="hidden" id="average" value="{{average}}"/>
+<input type="hidden" id="numberOfVotes" value="{{numberOfVotes}}"/>
+<label>Kérem értékeljen:</label>
+<br/>
+<br/>
+<input name="vote" id="vote1" type="radio" class="star"/>
+<input name="vote" id="vote2" type="radio" class="star"/>
+<input name="vote" id="vote3" type="radio" class="star"/>
+<input name="vote" id="vote4" type="radio" class="star"/>
+<input name="vote" id="vote5" type="radio" class="star"/>
+<br/>
+<p>
+  <input type="button" name="button" class="button" id="save" value="Mentés"/>
+</p>
+<br/>
+{{/display_vote}}
+
+{{#display_result}}
+<label>Értékelés:</label>
+<br/>
+<br/>
+<input name="result" type="radio" id="1" class="star" disabled="disabled" {{#display_rating_selected}}1{{/display_rating_selected}}/>
+<input name="result" type="radio" id="2" class="star" disabled="disabled" {{#display_rating_selected}}2{{/display_rating_selected}}/>
+<input name="result" type="radio" id="3" class="star" disabled="disabled" {{#display_rating_selected}}3{{/display_rating_selected}}/>
+<input name="result" type="radio" id="4" class="star" disabled="disabled" {{#display_rating_selected}}4{{/display_rating_selected}}/>
+<input name="result" type="radio" id="5" class="star" disabled="disabled" {{#display_rating_selected}}5{{/display_rating_selected}}/>
+<br/>
+<br/>
+<label>Összes szavazat: {{numberOfVotes}}</label>
+{{/display_result}}
+<script>
+
+      $(document).ready(function() {
+         $('input.star').rating();
+      });
+</script>
+
