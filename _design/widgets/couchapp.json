@@ -5,6 +5,9 @@
         "default" : {
           "db" : "http://admin:admin@localhost:5984/widgets"
         },
+        "tombenke" : {
+          "db" : "http://admin:admin@tombenke:5984/widgets"
+        },
         "public" : {
           "db" : "http://tombenke.couchone.com/widgets"
         },

@@ -13,5 +13,8 @@
                 </items>
             </view>
         </general-data>
+        <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>pékáru</word>
+        </spellchecker-wordlist>
     </configuration>
 </project>

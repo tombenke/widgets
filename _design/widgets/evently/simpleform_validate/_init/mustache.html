@@ -1,0 +1,104 @@
+<div id="simpleFormToValidate">
+    <form>
+        <div id="simpleFormTabs">
+            <ul>
+                <li><a href="#customerDataTab">Ügyféladatok</a></li>
+                <li><a href="#personalDataTab">Személyes adatok</a></li>
+                <li><a href="#companyDataTab">Céges adatok</a></li>
+            </ul>
+
+            <div id="customerDataTab" class="contactform">
+            </div>
+
+            <div id="personalDataTab" class="contactform">
+                <fieldset>
+                    <legend>&nbsp;Note&nbsp;</legend>
+
+                    <input type="hidden" name="type" id="type" class="hidden" value="note" />
+
+                    <p>
+                        <label for="title" class="left">Title:</label>
+                        <input type="text" name="title" id="title" class="field" value="" tabindex="1" />
+                    </p>
+
+                    <p>
+                        <label for="details" class="left">Details:</label>
+                        <textarea cols="60" rows="10" name="details" id="details" class="field" value="" tabindex="2" />
+                    </p>
+
+                    <p>
+                        <input type="submit" name="submit" id="submit" class="button" value="Save Form Data" tabindex="3" />
+                    </p>
+
+                </fieldset>
+            </div>
+
+            <div id="companyDataTab" class="contactform">
+            </div>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+        $('#simpleFormToValidate form').validate(
+            {
+                debug : true,
+
+                rules: {
+                    title : {
+                        required: true,
+                        minlength: 2
+                    },
+
+                    details : {
+                        required: true,
+                        minlength: 4
+                    }
+    /*
+                    email: {
+                        required: true,
+                        email: true
+                    },
+
+                    website: {
+                        url: true
+                    },
+
+                    password: {
+                        minlength: 6,
+                        required: true
+                    },
+
+                    passconf: {
+                        equalTo: "#password"
+                    }
+    */
+                },
+
+                invalidHandler: function(form, validator)
+                {
+                    var errors = validator.numberOfInvalids();
+//                    alert('validate.invalidHandler(' + errors + ')');
+                    console.log('invalidHandler',form,validator);
+                },
+
+                submitHandler: function( form )
+                {
+//                    alert('validate.submitHandler()');
+                    console.log('submitHandler',form);
+                }
+/*
+                success: function(label)
+                {
+                    label.text('OK!').addClass('valid');
+                    console.log('success',label);
+                }
+*/
+            }
+        );
+        $('#simpleFormToValidate form').css('border', '2px solid red');
+
+        alert('validator set to contactForm');
+    });
+</script>

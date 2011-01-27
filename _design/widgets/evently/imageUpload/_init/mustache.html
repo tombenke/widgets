@@ -1,9 +1,24 @@
+<script src="scripts/jquery.MultiFile.js"></script>
 <form class="P10 MltiFile-intercepted">
-  <input type="hidden" name="_rev" value="{{_rev}}">
-  <input type="hidden" name="_id" value="{{_id}}">
-  <div id="MultiFile1_wrap" class="MultiFile-wrap">
-      <input id="_attachments" name="_attachments" type="file" class="multi MultiFile-applied" accept="gif|jpg"/><br/>
-      <div id="MultiFile1_wrap_list" class="MultiFile-list"></div>
-  </div>
-  <input type="submit" value="Feltölt">
+    <input type="hidden" name="_rev" value="{{_rev}}" id="_rev">
+    <input type="hidden" name="_id" value="{{_id}}">
+    <div id="MultiFile1_wrap" class="MultiFile-wrap">
+        <input id="_attachments" name="_attachments" type="file" class="multi max-1" accept="gif|jpg"/><br/>
+        <div id="MultiFile1_wrap_list" class="MultiFile-list"></div>
+    </div>
+    <input type="submit" value="Feltölt">
 </form>
+<script>
+    $(function()
+    {
+        $.log( $('#_attachments') );
+        $('#_attachments').MultiFile(
+        {
+            onFileSelect: function( element, value, master_element )
+            {
+                $.log(value);
+            }
+        });
+    });
+</script>
+

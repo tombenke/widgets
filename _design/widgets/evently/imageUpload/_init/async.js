@@ -5,17 +5,21 @@ function( callback )
     if( $$(this).args.db != "" )
     {
         app.db.name = $$(this).args.db;
-        app.db.uri = "/"+$$(this).args.db+"/";
+        app.db.uri = "/" + $$(this).args.db + "/";
     }
 
     if( $$(this).args.id == "" )
     {
         var empty_doc = {};
-        app.db.saveDoc( empty_doc,
-        {
-            success: function( resp )
+        $.ajax({
+            type: "GET",
+            url: "/_uuids",
+            dataType: "json",
+            success: function( data )
             {
-                callback( resp );
+                empty_doc.id = data.uuids[0];
+                empty_doc.rev = "";
+                callback( empty_doc );
             }
         });
     }

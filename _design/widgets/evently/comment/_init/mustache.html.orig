@@ -1,4 +1,3 @@
-{{#display_add_comment}}
 <label>Kommentálja:</label>
 <br/>
 <br/>
@@ -8,8 +7,6 @@
   <input type="button" name="button" class="button" id="save" value="Mentés"/>
 </p>
 <br/>
-{{/display_add_comment}}
-{{#display_comments}}
 <label>Kommentek:</label>
 <br/>
 <br/>
@@ -17,13 +14,12 @@
 {{#comments}}
    {{#value}}
    <fieldset>
-     {{timestamp}}<br/><br/>
+     {{timestamp}}<br/>
      {{text}}<br/>
    </fieldset>
    {{/value}}
 {{/comments}}
 <br/>
-{{/display_comments}}
 
 
 

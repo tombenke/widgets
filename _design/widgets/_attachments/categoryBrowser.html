@@ -1,0 +1,524 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+        <link rel="stylesheet" href="style/smoothness/jquery-ui-1.8.2.custom.css" type="text/css"/>
+
+        <!--
+        <script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
+        <script type="text/javascript" src="scripts/jquery-ui-1.8.2.custom.min.js"></script>
+        -->
+
+        <style type="text/css">
+            .expArrow {
+                background: url("images/collapser/arrow-down.png") no-repeat scroll 0 4px transparent;
+                padding-left: 20px;
+            }
+            .collArrow {
+                background: url("images/collapser/arrow-up.png") no-repeat scroll 0 4px transparent;
+                padding-left: 20px;
+            }
+            .expIco {
+                background: url("images/collapser/plus.gif") no-repeat scroll 0 4px transparent;
+                padding-left: 20px;
+            }
+            .collIco {
+                background: url("images/collapser/minus.gif") no-repeat scroll 0 4px transparent;
+                padding-left: 20px;
+            }
+
+            /* Login */
+            #collapserContainer {
+              width: 280px;
+            }
+
+            a {
+              /*
+              display: block;
+              */
+              text-decoration: none;
+            }
+
+            ul {
+              list-style: none;
+            }
+
+            input {
+                width: 300px;
+            }
+
+
+        </style>
+
+        <title>Collapser</title>
+    </head>
+    <body>
+
+        <input type="text" id="another" title="Another input field"/><br/>
+        <input type="text" id="categoryBrowser" value="Select a category" title="Click here to choose a category"/>
+        <span>
+            <ul>
+                <li><a href="#">Gyümölcs</a>
+                    <ul>
+                        <li><a href="#">áfonya</a></li>
+                        <li><a href="#">alma</a></a></li>
+                        <li><a href="#">aszalt gyümölcsök</a></a></li>
+                        <li><a href="#">barackok</a></a></li>
+                        <li><a href="#">birs</a></a></li>
+                        <li><a href="#">bodza</a></li>
+                        <li><a href="#">cseresznye</a></li>
+                        <li><a href="#">csonthéjas magvak</a></li>
+                        <li><a href="#">déli gyümölcsök</a></li>
+                        <li><a href="#">dinnye</a></li>
+                        <li><a href="#">egres</a></li>
+                        <li><a href="#">eper</a></li>
+                        <li><a href="#">füge</a></li>
+                        <li><a href="#">körte</a></li>
+                        <li><a href="#">mák</a></li>
+                        <li><a href="#">málna</a></li>
+                        <li><a href="#">meggy</a></li>
+                        <li><a href="#">naspolya</a></li>
+                        <li><a href="#">ribizli</a></li>
+                        <li><a href="#">szeder</a></li>
+                        <li><a href="#">szilva</a></li>
+                        <li><a href="#">szőlő</a></li>
+                        <li><a href="#">gyümölcs-egyéb</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Zöldség</a>
+                    <ul>
+                        <li><a href="#">bab</a></li>
+                        <li><a href="#">brokkoli</a></li>
+                        <li><a href="#">burgonya</a></li>
+                        <li><a href="#">cékla</a></li>
+                        <li><a href="#">cukkini</a></li>
+                        <li><a href="#">csicsóka</a></li>
+                        <li><a href="#">gomba</a></li>
+                        <li><a href="#">hagymák</a></li>
+                        <li><a href="#">káposzták</a></li>
+                        <li><a href="#">karalábé</a></li>
+                        <li><a href="#">karfiol</a></li>
+                        <li><a href="#">padlizsán</a></li>
+                        <li><a href="#">paprika</a></li>
+                        <li><a href="#">paradicsom</a></li>
+                        <li><a href="#">patisszon</a></li>
+                        <li><a href="#">petrezselyem</a></li>
+                        <li><a href="#">retek</a></li>
+                        <li><a href="#">saláták</a></li>
+                        <li><a href="#">sárgarépa</a></li>
+                        <li><a href="#">sóska</a></li>
+                        <li><a href="#">spárga</a></li>
+                        <li><a href="#">spenót</a></li>
+                        <li><a href="#">torma</a></li>
+                        <li><a href="#">tök</a></li>
+                        <li><a href="#">uborka</a></li>
+                        <li><a href="#">zeller</a></li>
+                        <li><a href="#">zöldborsó</a></li>
+                        <li><a href="#">zöldség- egyéb</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Fűszer, fűszernövény</a>
+                    <ul>
+                        <li><a href="#">babér</a></li>
+                        <li><a href="#">bazsalikom</a></li>
+                        <li><a href="#">boróka</a></li>
+                        <li><a href="#">bors</a></li>
+                        <li><a href="#">borsikafű</a></li>
+                        <li><a href="#">fahéj</a></li>
+                        <li><a href="#">gyömbér</a></li>
+                        <li><a href="#">kakukkfű</a></li>
+                        <li><a href="#">kapor</a></li>
+                        <li><a href="#">koriander</a></li>
+                        <li><a href="#">köménymag</a></li>
+                        <li><a href="#">lestyán</a></li>
+                        <li><a href="#">majoranna</a></li>
+                        <li><a href="#">oregánó</a></li>
+                        <li><a href="#">petrezselyem</a></li>
+                        <li><a href="#">pirospaprika</a></li>
+                        <li><a href="#">só</a></li>
+                        <li><a href="#">szerecsendió</a></li>
+                        <li><a href="#">szezámmag</a></li>
+                        <li><a href="#">fűszer-egyéb</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Savanyúság</a>
+                    <ul>
+                        <li><a href="#">paprika</a></li>
+                        <li><a href="#">káposzta</a></li>
+                        <li><a href="#">csalamádé</a></li>
+                        <li><a href="#">uborka</a></li>
+                        <li><a href="#">cékla</a></li>
+                        <li><a href="#">savanyúság-egyéb</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Élő állat</a>
+                    <ul>
+                        <li><a href="#">birka</a></li>
+                        <li><a href="#">hal</a></li>
+                        <li><a href="#">juh</a></li>
+                        <li><a href="#">kacsa</a></li>
+                        <li><a href="#">kakas</a></li>
+                        <li><a href="#">kecske</a></li>
+                        <li><a href="#">ló</a></li>
+                        <li><a href="#">liba</a></li>
+                        <li><a href="#">marha</a></li>
+                        <li><a href="#">nyúl</a></li>
+                        <li><a href="#">pulyka</a></li>
+                        <li><a href="#">sertés</a></li>
+                        <li><a href="#">strucc</a></li>
+                        <li><a href="#">tyúk</a></li>
+                        <li><a href="#">élő állat-egyéb</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Hús</a>
+                    <ul>
+                        <li><a href="#">birka</a></li>
+                        <li><a href="#">hal</a></li>
+                        <li><a href="#">juh</a></li>
+                        <li><a href="#">kacsa</a></li>
+                        <li><a href="#">kakas</a></li>
+                        <li><a href="#">kecske</a></li>
+                        <li><a href="#">liba</a></li>
+                        <li><a href="#">marha</a></li>
+                        <li><a href="#">nyúl</a></li>
+                        <li><a href="#">pulyka</a></li>
+                        <li><a href="#">sertés</a></li>
+                        <li><a href="#">tyúk</a></li>
+                        <li><a href="#">vad</a></li>
+                        <li><a href="#">hús - egyéb</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Húskészítmény</a>
+                    <ul>
+                        <li><a href="#">birka</a></li>
+                        <li><a href="#">hal</a></li>
+                        <li><a href="#">juh</a></li>
+                        <li><a href="#">kacsa</a></li>
+                        <li><a href="#">kakas</a></li>
+                        <li><a href="#">kecske</a></li>
+                        <li><a href="#">liba</a></li>
+                        <li><a href="#">marha</a></li>
+                        <li><a href="#">nyúl</a></li>
+                        <li><a href="#">pulyka</a></li>
+                        <li><a href="#">sertés</a></li>
+                        <li><a href="#">tyúk</a></li>
+                        <li><a href="#">vad</a></li>
+                        <li><a href="#">hús - egyéb</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Tejtermék</a>
+                    <ul>
+                        <li><a href="#">joghurt</a></li>
+                        <li><a href="#">kefir</a></li>
+                        <li><a href="#">sajt</a></li>
+                        <li><a href="#">tej</a></li>
+                        <li><a href="#">tejföl</a></li>
+                        <li><a href="#">tejszín</a></li>
+                        <li><a href="#">túró</a></li>
+                        <li><a href="#">vaj</a></li>
+                        <li><a href="#">tejtermék-egyéb</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Liszt</a>
+                    <ul>
+                        <li><a href="#">búzaliszt</a></li>
+                        <li><a href="#">kukoricaliszt</a></li>
+                        <li><a href="#">rizsliszt</a></li>
+                        <li><a href="#">rozsliszt</a></li>
+                        <li><a href="#">tönkölybúzaliszt</a></li>
+                        <li><a href="#">zab-, zabpehelyliszt</a></li>
+                        <li><a href="#">liszt-egyéb</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Tészta</a>
+                    <ul>
+                        <li><a href="#">0 tojásos</a></li>
+                        <li><a href="#">2 tojásos</a></li>
+                        <li><a href="#">4 tojásos</a></li>
+                        <li><a href="#">6 tojásos</a></li>
+                        <li><a href="#">8 tojásos</a></li>
+                        <li><a href="#">egyéb nem lisztalapú tészták</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Tojás</a>
+                    <ul>
+                        <li><a href="#">emu</a></li>
+                        <li><a href="#">fürj</a></li>
+                        <li><a href="#">kacsa</a></li>
+                        <li><a href="#">strucc</a></li>
+                        <li><a href="#">tyúk</a></li>
+                        <li><a href="#">tojás-egyéb</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Sütőipari termékek</a>
+                    <ul>
+                        <li><a href="#">édességek</a>
+                            <ul>
+                                <li><a href="#">édes kekszek</a></li>
+                                <li><a href="#">piskóták és édes tészták</a></li>
+                                <li><a href="#">ostyák</a></li>
+                                <li><a href="#">édesség-egyéb</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">pékáru</a>
+                        </li>
+                        <li><a href="#">sós snackek</a>
+                             <ul>
+                                <li><a href="#">chips</a></li>
+                                <li><a href="#">kétszersült</a></li>
+                                <li><a href="#">ropi</a></li>
+                                <li><a href="#">tallér</a></li>
+                                <li><a href="#">sós kekszek</a></li>
+                                <li><a href="#">sós snack-egyéb</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">Étolaj</a>
+                    <ul>
+                        <li><a href="#">napraforgó</a></li>
+                        <li><a href="#">olíva</a></li>
+                        <li><a href="#">repce</a></li>
+                        <li><a href="#">olaj-egyéb</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Édesítőszerek</a>
+                    <ul>
+                        <li><a href="#">méz</a></li>
+                        <li><a href="#">cukor</a></li>
+                        <li><a href="#">mesterséges édesítőszer</a></li>
+                        <li><a href="#">édesítőszer-egyéb</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Lekvár</a>
+                </li>
+                <li><a href="#">Gabona</a>
+                    <ul>
+                        <li><a href="#">árpa</a></li>
+                        <li><a href="#">búza</a></li>
+                        <li><a href="#">köles</a></li>
+                        <li><a href="#">kukorica</a></li>
+                        <li><a href="#">rozs</a></li>
+                        <li><a href="#">zab</a></li>
+                        <li><a href="#">gabona-egyéb</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">mélyhűtött termékek</a>
+                    <ul>
+                        <li><a href="#">gyümölcsök</a>
+                            <ul>
+                                <li><a href="#">áfonya</a></li>
+                                <li><a href="#">alma</a></li>
+                                <li><a href="#">barackok</a></li>
+                                <li><a href="#">birs</a></li>
+                                <li><a href="#">bodza</a></li>
+                                <li><a href="#">cseresznye</a></li>
+                                <li><a href="#">egres</a></li>
+                                <li><a href="#">eper</a></li>
+                                <li><a href="#">füge</a></li>
+                                <li><a href="#">körte</a></li>
+                                <li><a href="#">málna</a></li>
+                                <li><a href="#">meggy</a></li>
+                                <li><a href="#">ribizli</a></li>
+                                <li><a href="#">szeder</a></li>
+                                <li><a href="#">szilva</a></li>
+                                <li><a href="#">gyümölcs-egyéb</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">hús</a>
+                            <ul>
+                                <li><a href="#">birka</a></li>
+                                <li><a href="#">hal</a></li>
+                                <li><a href="#">juh</a></li>
+                                <li><a href="#">kacsa</a></li>
+                                <li><a href="#">kakas</a></li>
+                                <li><a href="#">kecske</a></li>
+                                <li><a href="#">liba</a></li>
+                                <li><a href="#">marha</a></li>
+                                <li><a href="#">nyúl</a></li>
+                                <li><a href="#">pulyka</a></li>
+                                <li><a href="#">sertés</a></li>
+                                <li><a href="#">tyúk</a></li>
+                                <li><a href="#">vad</a></li>
+                                <li><a href="#">hús - egyéb</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Húskészítmény</a>
+                            <ul>
+                                <li><a href="#">birka</a></li>
+                                <li><a href="#">hal</a></li>
+                                <li><a href="#">juh</a></li>
+                                <li><a href="#">kacsa</a></li>
+                                <li><a href="#">kakas</a></li>
+                                <li><a href="#">kecske</a></li>
+                                <li><a href="#">liba</a></li>
+                                <li><a href="#">marha</a></li>
+                                <li><a href="#">nyúl</a></li>
+                                <li><a href="#">pulyka</a></li>
+                                <li><a href="#">sertés</a></li>
+                                <li><a href="#">tyúk</a></li>
+                                <li><a href="#">vad</a></li>
+                                <li><a href="#">hús - egyéb</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">jégkrémek és fagylaltok</a></li>
+                        <li><a href="#">kész- és félkész termékek</a></li>
+                        <li><a href="#">sütemények, torták</a></li>
+                        <li><a href="#">zöldségek</a>
+                            <ul>
+                                <li><a href="#">bab</a></li>
+                                <li><a href="#">brokkoli</a></li>
+                                <li><a href="#">burgonya</a></li>
+                                <li><a href="#">cukkini</a></li>
+                                <li><a href="#">csicsóka</a></li>
+                                <li><a href="#">gomba</a></li>
+                                <li><a href="#">hagymák</a></li>
+                                <li><a href="#">káposzták</a></li>
+                                <li><a href="#">karalábé</a></li>
+                                <li><a href="#">karfiol</a></li>
+                                <li><a href="#">padlizsán</a></li>
+                                <li><a href="#">paprika</a></li>
+                                <li><a href="#">paradicsom</a></li>
+                                <li><a href="#">patisszon</a></li>
+                                <li><a href="#">petrezselyem</a></li>
+                                <li><a href="#">retek</a></li>
+                                <li><a href="#">saláták</a></li>
+                                <li><a href="#">sárgarépa</a></li>
+                                <li><a href="#">sóska</a></li>
+                                <li><a href="#">spárga</a></li>
+                                <li><a href="#">spenót</a></li>
+                                <li><a href="#">tök</a></li>
+                                <li><a href="#">uborka</a></li>
+                                <li><a href="#">zeller</a></li>
+                                <li><a href="#">zöldborsó</a></li>
+                                <li><a href="#">zöldség - egyéb</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">Konzerv, befőtt</a>
+                    <ul>
+                        <li><a href="#">gyümölcsök</a></li>
+                        <li><a href="#">halkonzerv</a></li>
+                        <li><a href="#">húskészítmények</a></li>
+                        <li><a href="#">kész- és félkész termékek</a></li>
+                        <li><a href="#">savanyúságok, saláták</a></li>
+                        <li><a href="#">zöldségek</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Ital</a>
+                    <ul>
+                        <li><a href="#">bor</a>
+                            <ul>
+                                <li><a href="#">bor / fehérbor</a></li>
+                                <li><a href="#">bor / rosé bor</a></li>
+                                <li><a href="#">bor / vörösbor</a></li>
+                                <li><a href="#">bor / bor-egyéb</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="#">rövidital</a></li>
+                        <li><a href="#">sör</a></li>
+                        <li><a href="#">egyéb-alkoholos</a></li>
+
+                        <li><a href="#">alkoholmentes</a>
+                            <ul>
+                                <li><a href="#">alkoholmentes / ásványvíz</a></li>
+                                <li><a href="#">alkoholmentes / gyümölcslé</a></li>
+                                <li><a href="#">alkoholmentes / szódavíz</a></li>
+                                <li><a href="#">alkoholmentes / szörp</a></li>
+                                <li><a href="#">alkoholmentes / alkoholmentes-egyéb</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">Növénytermesztés</a>
+                    <ul>
+                        <li><a href="#">gyümölcsfa csemete</a></li>
+                        <li><a href="#">palánta</a></li>
+                        <li><a href="#">szőlőoltvány</a></li>
+                        <li><a href="#">vetőmag</a></li>
+                        <li><a href="#">növénytermesztés-egyéb</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Széna, szalma, trágya</a>
+                    <ul>
+                        <li><a href="#">szalma</a></li>
+                        <li><a href="#">széna</a></li>
+                        <li><a href="#">trágya</a></li>
+                        <li><a href="#">Egyéb</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </span>
+
+
+        <!--div>
+            <ul>
+                <li>
+                    <a href="#">Category 1</a>
+                    <ul>
+                        <li><a href="#">Item 1</a></li>
+                        <li><a href="#">Item 2</a></li>
+                        <li><a href="#">Item 3</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#">Category 2</a>
+                    <ul>
+                        <li>
+                            <a href="#">Subcategory 1</a>
+                            <ul>
+                                <li><a href="#">Item 1</a></li>
+                                <li><a href="#">Item 2</a></li>
+                                <li><a href="#">Item 3</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="#">Item 2</a></li>
+
+                        <li>
+                            <a href="#">Subcategory 2</a>
+                            <ul>
+                                <li><a href="#">Item 1</a></li>
+                                <li><a href="#">Item 2</a></li>
+                                <li><a href="#">Item 3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#">Category 3</a>
+                    <ul>
+                        <li><a href="#">Item 1</a></li>
+                        <li><a href="#">Item 2</a></li>
+                        <li><a href="#">Item 3</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div-->
+        
+    </body>
+    <script src="vendor/couchapp/loader.js"></script>
+    <!-- script type="text/javascript" src="scripts/jquery.collapser_3/jquery.inputWrapper.js"></script -->
+    <script type="text/javascript" src="scripts/jquery.categoryBrowser/jquery.categoryBrowser.js"></script>
+
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(
+            function()
+            {
+                $.couch.app(
+                    function( app )
+                    {
+//                        $( '#inputWrapper' ).inputWrapper();
+                        $( '#categoryBrowser' ).categoryBrowser();
+                    }
+                )
+            }
+        );
+
+    </script>
+</html>
